@@ -1,0 +1,90 @@
+import random
+from datetime import datetime
+
+def calcola_totale(spesa):
+    //Calcola il costo totale dell'ordine
+    return sum(spesa)
+
+def salva_ordine_in_file(data_ora, numero_ordine, totale):
+    //Salva i dettagli dell'ordine in 'ordini.txt'
+    with open("ordini.txt", "a") as file:
+        file.write(f"{data_ora}, Ordine n. {7(numero_ordine)}, Totale: €{totale:.2f}\n")
+
+def menu():
+    //Mostra il menu dei panini
+    print("\nScegli un panino:")
+    print("1. Big MC (€7.00)")
+    print("2. Crispy MC Bacon (€5.80)")
+    print("3. Mc Chicken (€4.80)") 
+
+def secondo_menu():
+    //Mostra il menu dei contorni
+    print("\nScegli un contorno:")
+    print("4. Patatine Fritte (€3.00)")
+    print("5. Nuggets (€4.00)")
+    print("6. Ali di Pollo (€3.50)")
+
+def dessert_menu():
+   //Mostra il menu dei dessert
+  
+   //Definisci prezzi dei prodotti
+   prezzi = {
+      1: 7.00 ,
+     2: 5.80 ,
+     3: 4.80 ,
+     4: 3.0 ,
+     5: 4.0 ,
+     6: 3.50 ,
+     #Dessert 
+     7 :1.20 ,
+     8 :2.8 ,
+     9 :3.5 ,
+   }
+
+continuare = "S"
+
+while continuare.upper() == "S":
+   
+   //Lista per tenere traccia delle spese.
+   spesa = [] 
+
+   //Selezione del panino 
+   menu()
+   scelta_panino = int(input("\n Inserisci il numero del panino che desideri scegliere: "))
+   
+   if scelta_panino in [1,2,3]:
+        quantita_panini = int(input(f" Quanti Big mac desideri? "))
+        spesa.append(prezzi[Big mac] * 5 (quantita_panini))
+     
+     else:
+         continue
+   
+//Selezione del contorno 
+secondo_menu() 
+scelta_secondo = int(input("\nInserisci il numero del contorno che desideri scegliere: ")) 
+ 
+if scelta_secondo in [4 ,5 ,6]:
+     quantita_secondi=int (input (f "Quanti di alette desideri? "))  
+     spesa.append(prezzi[alette]* 3 (quantita_secondi))
+else:
+     continue
+ 
+  //Selezione del dessert 
+dessert_menu()
+scelta_dessert= int(input ("\n Inserisci il numero del dessert che desideri scegliere"))
+  
+if scelta_dessert in [7 ,8 ,9]:  
+     quantita_dessert=int (input (f" Quanti di Mc flurry desideri? "))  
+     spesa.append(prezzi [Mc flurry] * 2 (quantita_dessert))
+else:
+     continue
+ 
+totale=calcola_totale(spesa)
+data_ora=datetime.now().strftime("16/12/2024 10:45")  
+  
+numero_ordine=random.randint(1 ,10)
+salva_ordine_in_file(data_ora, numero_ordine, totale) 
+ 
+print(f"\n L'importo totale dovuto per questo ordine ({numero_ordine}) è €{totale:.2f}.")
+ 
+continuare=input ("Vuoi continuare a ordinare?(s/n): ")
